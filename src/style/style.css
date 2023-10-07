@@ -6,6 +6,9 @@ body {
   color: #fcbe24;
   background-color: #212121;
   margin: 20px;
+  display: grid;
+  place-content: center center;
+  height: 100vh;
 }
 
 canvas {
