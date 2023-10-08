@@ -1,6 +1,8 @@
 # tetrits
 
 Basic browser-based implementation of the Tetris game, using Typescript.
+Try it here: https://colxi.info/tetrits/
+
 
 ![alt text](https://github.com/colxi/tetrits/blob/main/assets/tetrits.jpg?raw=true)
 
