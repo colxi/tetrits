@@ -59,7 +59,7 @@ export class Board {
     const projection = this.currentTetromino.clone()
     while (true) {
       projection.y++
-      if (Board.hasCollistion(projection)) {
+      if (Board.hasCollision(projection)) {
         projection.y--
         break
       }
@@ -98,12 +98,12 @@ export class Board {
     return this.boardData[y][x]
   }
 
-  public static hasCollistion(tetromino: Tetromino = this.currentTetromino): boolean {
+  public static hasCollision(tetromino: Tetromino = this.currentTetromino): boolean {
     // check collision with borders
     if (tetromino.y + tetromino.height > this.height) return true
     if (tetromino.x < 0) return true
     if (tetromino.x + tetromino.width > this.width) return true
-    // check collistion betwen Tetromino annd other block already on the board
+    // check collision between Tetromino and other block already on the board
     for (let offsetY = 0; offsetY < tetromino.height; offsetY++) {
       for (let offsetX = 0; offsetX < tetromino.width; offsetX++) {
         const boardX = tetromino.x + offsetX
@@ -130,18 +130,17 @@ export class Board {
     }
   }
 
-  public static processCompletdeRows(): number {
+  public static processCompletedRows(): number {
     // check if there is any complete row
     let filledRows = 0
     for (let y = 0; y < this.boardData.length; y++) {
       const row = this.boardData[y]
-      const allRowFilled = !row.some((i) => i === 0)
+      const fullRowIsFilled: boolean = !row.some((i) => i === 0)
       // if all row is filled, remove it, insert a new row on the top
-      if (allRowFilled) {
+      if (fullRowIsFilled) {
         filledRows++
         this.boardData.splice(y, 1)
         this.boardData.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-        this.createNewTetromino()
       }
     }
     return filledRows
