@@ -1,10 +1,19 @@
 # tetrits
 
-Basic browser-based implementation of the Tetris game, using Typescript.
+Basic browser-based implementation of the Tetris game, using Typescript, with no external dependencies.
+
 > Try it here: https://colxi.info/tetrits/
 
-
 ![alt text](https://github.com/colxi/tetrits/blob/main/assets/tetrits.jpg?raw=true)
+
+# Execution
+
+Simply run the following commands and open your browser at `http://localhost:5173/`
+
+```
+pnpm i
+pnpm dev
+```
 
 ## Features :
 
