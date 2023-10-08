@@ -1,3 +1,4 @@
+import { DOM } from './dom';
 class InputEvent {
   public isPressed: boolean = false
   public onCurrentFrame: boolean = false
@@ -18,12 +19,31 @@ export class Input {
 
   static init() {
     if (this.isInitiated) return
-    document.addEventListener('keydown', this.habdleKeyDown.bind(this))
-    document.addEventListener('keyup', this.habdleKeyUp.bind(this))
+    document.addEventListener('keydown', this.handleKeyDown.bind(this))
+    document.addEventListener('keyup', this.handleKeyUp.bind(this))
+    DOM.buttonLeft.addEventListener('mousedown', ()=> this.handleTap('ArrowLeft'))
+    DOM.buttonRight.addEventListener('mousedown', ()=> this.handleTap('ArrowRight'))
+    DOM.buttonRotate.addEventListener('mousedown', ()=> this.handleTap('ArrowUp'))
+    DOM.buttonFall.addEventListener('mousedown', ()=> this.handleTap('ArrowDown'))
+
+    DOM.buttonLeft.addEventListener('mouseup', ()=> this.handleUTap('ArrowLeft'))
+    DOM.buttonRight.addEventListener('mouseup', ()=> this.handleUTap('ArrowRight'))
+    DOM.buttonRotate.addEventListener('mouseup', ()=> this.handleUTap('ArrowUp'))
+    DOM.buttonFall.addEventListener('mouseup', ()=> this.handleUTap('ArrowDown'))
     this.isInitiated = true
   }
 
-  static habdleKeyDown(e: KeyboardEvent) {
+  static handleTap(key: string){
+    const event = new KeyboardEvent('keydown' ,  {key})
+    this.handleKeyDown(event)
+  }
+
+  static handleUTap(key: string){
+    const event = new KeyboardEvent('keyup' ,  {key})
+    this.handleKeyUp(event)
+  }
+
+  static handleKeyDown(e: KeyboardEvent) {
     switch (e.key) {
       case 'ArrowLeft': {
         e.preventDefault()
@@ -66,7 +86,7 @@ export class Input {
     }
   }
 
-  static habdleKeyUp(e: KeyboardEvent) {
+  static handleKeyUp(e: KeyboardEvent) {
     e.preventDefault()
     switch (e.key) {
       case 'ArrowLeft': {

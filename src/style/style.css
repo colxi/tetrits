@@ -24,6 +24,7 @@ canvas {
   font-weight: 800;
   font-size: 30px;
 }
+
 #wrapper {
   display: inline-grid;
   grid-template-columns: auto 1fr;
@@ -47,6 +48,9 @@ canvas {
   margin-top: 20px;
 }
 
+#mobileControls {
+  display: none;
+}
 
 @media (max-width:800px) {
   body{ 
@@ -68,5 +72,21 @@ canvas {
 
   #infoBox{
     display: none;
+  }
+
+  #mobileControls{
+    position: absolute;
+    height: 100vh;
+    background: red;
+    top: 0px;
+    display: grid;
+    width: 100%;
+    opacity: .1;
+    grid-template-rows: 50% 50%;
+  }
+
+  #mobileControlsFirstRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
