@@ -20,6 +20,10 @@ canvas {
   border: 1px solid;
 }
 
+#title{
+  font-weight: 800;
+  font-size: 30px;
+}
 #wrapper {
   display: inline-grid;
   grid-template-columns: auto 1fr;
@@ -36,10 +40,29 @@ canvas {
 }
 
 #UICanvas{
-  border-bottom: 10px solid;
+  border-bottom: 5px solid;
 }
 
 #infoBox {
   margin-top: 20px;
 }
 
+
+
+@media (max-width:800px) {
+  #wrapper{
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+ 
+  #UICanvas{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    zoom: .6;
+  }
+
+  #infoBox{
+    display: none;
+  }
+}
