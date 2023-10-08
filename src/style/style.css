@@ -93,11 +93,14 @@ canvas {
     #buttonRotate,
     #buttonRight,
     #buttonLeft{
-      background: red;
-      display: inline-block;
-      padding: 10px;
-      font-size: 20px;
-      place-self: center center;
+      display:grid;
+      .keyButton{
+        background: red;
+        display: inline-block;
+        padding: 10px;
+        font-size: 20px;
+        place-self: center center;
+      }
     }
   }
 }

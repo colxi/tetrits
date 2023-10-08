@@ -21,6 +21,7 @@ export class Input {
     if (this.isInitiated) return
     document.addEventListener('keydown', this.handleKeyDown.bind(this))
     document.addEventListener('keyup', this.handleKeyUp.bind(this))
+    
     DOM.buttonLeft.addEventListener('touchstart', ()=> this.handleTapStart('ArrowLeft'))
     DOM.buttonRight.addEventListener('touchstart', ()=> this.handleTapStart('ArrowRight'))
     DOM.buttonDown.addEventListener('touchstart', ()=> this.handleTapStart('ArrowDown'))
@@ -44,6 +45,7 @@ export class Input {
   }
 
   static handleKeyDown(e: KeyboardEvent) {
+    console.log('down', e.key)
     switch (e.key) {
       case 'ArrowLeft': {
         e.preventDefault()
@@ -87,7 +89,7 @@ export class Input {
   }
 
   static handleKeyUp(e: KeyboardEvent) {
-    e.preventDefault()
+    console.log('up', e.key)
     switch (e.key) {
       case 'ArrowLeft': {
         e.preventDefault()
