@@ -1,1 +1,0 @@
-*{box-sizing:border-box}body{color:#fcbe24;background-color:#212121;margin:20px;display:grid;place-content:center center;height:100vh}canvas{image-rendering:pixelated}#wrapper{display:inline-grid;grid-template-columns:auto 1fr;gap:20px;border:1px solid #fcbe24;padding:30px;width:400px}#infoBox{font-size:12px;margin-top:20px}
