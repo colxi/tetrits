@@ -49,10 +49,17 @@ canvas {
 
 
 @media (max-width:800px) {
+  body{ 
+    display: block;
+    overflow: hidden;
+  }
+
   #wrapper{
-    grid-template-columns: 1fr;
     width: 100%;
     zoom: 1.2;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center center;
   }
  
   #UICanvas{
