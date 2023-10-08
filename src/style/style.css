@@ -77,16 +77,27 @@ canvas {
   #mobileControls{
     position: absolute;
     height: 100vh;
-    background: red;
     top: 0px;
     display: grid;
     width: 100%;
-    opacity: .1;
     grid-template-rows: 2fr 1fr;
   }
 
   #mobileControlsFirstRow{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #mobileControls[preview="true"] {
+    #buttonDown,
+    #buttonRotate,
+    #buttonRight,
+    #buttonLeft{
+      background: red;
+      display: inline-block;
+      padding: 10px;
+      font-size: 20px;
+      place-self: center center;
+    }
   }
 }

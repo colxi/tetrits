@@ -5,5 +5,5 @@ export class DOM {
   static buttonLeft = document.getElementById('buttonLeft') as HTMLElement
   static buttonRight = document.getElementById('buttonRight') as HTMLElement
   static buttonRotate = document.getElementById('buttonRotate') as HTMLElement
-  static buttonFall = document.getElementById('buttonFall') as HTMLElement
+  static buttonDown = document.getElementById('buttonDown') as HTMLElement
 }

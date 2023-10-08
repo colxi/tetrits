@@ -1,5 +1,10 @@
 {
   "name": "tetrits",
+  "author": {
+    "name": "colxi",
+    "email": "contact@colxi.info",
+    "url": "http://www.colxi.info"
+  },
   "version": "0.0.0",
   "private": true,
   "scripts": {
