@@ -43,6 +43,7 @@ export class Input {
         this.down.onCurrentFrame = true
         break
       }
+      case 'ArrowUp': 
       case 'Shift': {
         e.preventDefault()
         this.rotate.isPressed = true
@@ -86,6 +87,7 @@ export class Input {
         this.down.onCurrentFrame = true
         break
       }
+      case 'ArrowUp': 
       case 'Shift': {
         e.preventDefault()
         this.rotate.isPressed = false
