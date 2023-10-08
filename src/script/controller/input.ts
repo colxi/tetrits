@@ -21,15 +21,15 @@ export class Input {
     if (this.isInitiated) return
     document.addEventListener('keydown', this.handleKeyDown.bind(this))
     document.addEventListener('keyup', this.handleKeyUp.bind(this))
-    DOM.buttonLeft.addEventListener('mousedown', ()=> this.handleTap('ArrowLeft'))
-    DOM.buttonRight.addEventListener('mousedown', ()=> this.handleTap('ArrowRight'))
-    DOM.buttonRotate.addEventListener('mousedown', ()=> this.handleTap('ArrowUp'))
-    DOM.buttonFall.addEventListener('mousedown', ()=> this.handleTap('ArrowDown'))
+    DOM.buttonLeft.addEventListener('touchstart', ()=> this.handleTap('ArrowLeft'))
+    DOM.buttonRight.addEventListener('touchstart', ()=> this.handleTap('ArrowRight'))
+    DOM.buttonRotate.addEventListener('touchstart', ()=> this.handleTap('ArrowUp'))
+    DOM.buttonFall.addEventListener('touchstart', ()=> this.handleTap('ArrowDown'))
 
-    DOM.buttonLeft.addEventListener('mouseup', ()=> this.handleUTap('ArrowLeft'))
-    DOM.buttonRight.addEventListener('mouseup', ()=> this.handleUTap('ArrowRight'))
-    DOM.buttonRotate.addEventListener('mouseup', ()=> this.handleUTap('ArrowUp'))
-    DOM.buttonFall.addEventListener('mouseup', ()=> this.handleUTap('ArrowDown'))
+    DOM.buttonLeft.addEventListener('mouseup', ()=> this.handleUmtap('ArrowLeft'))
+    DOM.buttonRight.addEventListener('mouseup', ()=> this.handleUmtap('ArrowRight'))
+    DOM.buttonRotate.addEventListener('mouseup', ()=> this.handleUmtap('ArrowUp'))
+    DOM.buttonFall.addEventListener('mouseup', ()=> this.handleUmtap('ArrowDown'))
     this.isInitiated = true
   }
 
@@ -38,7 +38,7 @@ export class Input {
     this.handleKeyDown(event)
   }
 
-  static handleUTap(key: string){
+  static handleUmtap(key: string){
     const event = new KeyboardEvent('keyup' ,  {key})
     this.handleKeyUp(event)
   }

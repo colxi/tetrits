@@ -82,7 +82,7 @@ canvas {
     display: grid;
     width: 100%;
     opacity: .1;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 2fr 1fr;
   }
 
   #mobileControlsFirstRow{
