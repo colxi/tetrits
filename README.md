@@ -29,6 +29,7 @@ pnpm dev
 # Pending features
 
 - Wall kick
-- Rotate on pivot point
-- Multiple rotate direction
+- Rotate using custom pivot point
+- Multiple rotation directions
 - Use standard scoring system
+- Include several modern Tetris features
