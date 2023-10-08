@@ -5,6 +5,7 @@ import { Game } from './game'
 
 export class UI {
   public static context: CanvasRenderingContext2D = DOM.UICanvas.getContext('2d')!
+  public static mobileControls: HTMLElement = DOM.mobileControls
   public static canvas: HTMLCanvasElement = DOM.UICanvas
 
   public static init() {
@@ -14,6 +15,19 @@ export class UI {
     this.context.strokeStyle = '#fcbe24'
     this.context.fillStyle = '#fcbe24'
     this.context.lineWidth = 2
+
+    if(Game.isMobile) {
+      this.showMobileControls()
+      this.mobileControls.addEventListener('click', this.hideMobileControls.bind(this))
+    }
+  }
+  
+  public static hideMobileControls() {
+    document.body.removeAttribute('preview-controls')
+  }
+
+  public static showMobileControls() {
+    document.body.setAttribute('preview-controls', 'true')
   }
 
   public static render() {

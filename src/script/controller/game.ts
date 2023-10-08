@@ -14,6 +14,10 @@ export class Game {
     return Math.floor(this.speed / 5)
   }
 
+  public static get isMobile(): boolean {
+    return window.innerWidth < 800
+  }
+
   public static pause() {
     this.isPaused = true
   }

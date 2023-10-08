@@ -6,4 +6,5 @@ export class DOM {
   static buttonRight = document.getElementById('buttonRight') as HTMLElement
   static buttonRotate = document.getElementById('buttonRotate') as HTMLElement
   static buttonDown = document.getElementById('buttonDown') as HTMLElement
+  static mobileControls = document.getElementById('mobileControls') as HTMLElement
 }

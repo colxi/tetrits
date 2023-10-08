@@ -37,16 +37,18 @@ canvas {
   border-bottom: 10px solid;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  margin-top:10px
+  margin-top:10px;
+
+  #UICanvas {
+    border-bottom: 5px solid;
+  }
+  
+  #infoBox {
+    margin-top: 20px;
+  }
 }
 
-#UICanvas{
-  border-bottom: 5px solid;
-}
 
-#infoBox {
-  margin-top: 20px;
-}
 
 #mobileControls {
   display: none;
@@ -64,15 +66,16 @@ canvas {
     display: grid;
     grid-template-columns: 1fr;
     place-items: center center;
+
+    #UICanvas {
+        display: none;
+      }
+    
+    #infoBox {
+      display: none;
+    }
   }
  
-  #UICanvas{
-    display: none;
-  }
-
-  #infoBox{
-    display: none;
-  }
 
   #mobileControls{
     position: absolute;
@@ -81,25 +84,42 @@ canvas {
     display: grid;
     width: 100%;
     grid-template-rows: 2fr 1fr;
+
+    #mobileControlsFirstRow {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .keyButton {
+        display: none;
+    }
   }
 
-  #mobileControlsFirstRow{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  body[preview-controls="true"]{
+    #wrapper {
+      filter: blur(3px);
+    }
 
-  #mobileControls[preview="true"] {
-    #buttonDown,
-    #buttonRotate,
-    #buttonRight,
-    #buttonLeft{
-      display:grid;
-      .keyButton{
-        background: red;
-        display: inline-block;
-        padding: 10px;
-        font-size: 20px;
-        place-self: center center;
+    #mobileControls {
+      #buttonDown,
+      #buttonRotate,
+      #buttonRight,
+      #buttonLeft{
+        display:grid;
+        .keyButton{
+          background: #fcbe24;
+          display: inline-grid;
+          padding: 10px;
+          font-size: 20px;
+          place-self: center center;
+          color: black;
+          border-radius: 100%;
+          border: 2px solid #212121;
+          width: 100px;
+          height: 100px;
+          place-content: center center;
+          font-weight: 800;
+        }
       }
     }
   }

@@ -45,7 +45,6 @@ export class Input {
   }
 
   static handleKeyDown(e: KeyboardEvent) {
-    console.log('down', e.key)
     switch (e.key) {
       case 'ArrowLeft': {
         e.preventDefault()
@@ -89,7 +88,6 @@ export class Input {
   }
 
   static handleKeyUp(e: KeyboardEvent) {
-    console.log('up', e.key)
     switch (e.key) {
       case 'ArrowLeft': {
         e.preventDefault()
