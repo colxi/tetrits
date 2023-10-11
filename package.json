@@ -19,6 +19,7 @@
     }
   },
   "lint-staged": {
+    "debug": true,
     "*.{js, ts}": [
       "eslint -c .eslintrc.json './src' --fix",
       "git add"
