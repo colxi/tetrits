@@ -35,6 +35,7 @@ export class Input {
   }
 
   
+
   static handleTapStart(key: string) {
     const event = new KeyboardEvent('keydown', { key });
     this.handleKeyDown(event)
