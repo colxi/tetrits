@@ -16,12 +16,12 @@ export class UI {
     this.context.fillStyle = '#fcbe24'
     this.context.lineWidth = 2
 
-    if(Game.isMobile) {
+    if (Game.isMobile) {
       this.showMobileControls()
       this.mobileControls.addEventListener('click', this.hideMobileControls.bind(this))
     }
   }
-  
+
   public static hideMobileControls() {
     document.body.removeAttribute('preview-controls')
   }

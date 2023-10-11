@@ -60,6 +60,6 @@ export function handleFloorContact() {
     Game.score = 0
     Game.speed = 0
   }
-  
+
   Board.createNewTetromino()
 }

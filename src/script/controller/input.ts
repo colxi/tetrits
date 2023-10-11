@@ -1,4 +1,4 @@
-import { DOM } from './dom';
+import { DOM } from './dom'
 class InputEvent {
   public isPressed: boolean = false
   public onCurrentFrame: boolean = false
@@ -21,26 +21,26 @@ export class Input {
     if (this.isInitiated) return
     document.addEventListener('keydown', this.handleKeyDown.bind(this))
     document.addEventListener('keyup', this.handleKeyUp.bind(this))
-    
-    DOM.buttonLeft.addEventListener('touchstart', ()=> this.handleTapStart('ArrowLeft'))
-    DOM.buttonRight.addEventListener('touchstart', ()=> this.handleTapStart('ArrowRight'))
-    DOM.buttonDown.addEventListener('touchstart', ()=> this.handleTapStart('ArrowDown'))
-    DOM.buttonRotate.addEventListener('touchstart', ()=> this.handleTapStart('ArrowUp'))
 
-    DOM.buttonLeft.addEventListener('mouseup', ()=> this.handleTapEnd('ArrowLeft'))
-    DOM.buttonRight.addEventListener('mouseup', ()=> this.handleTapEnd('ArrowRight'))
-    DOM.buttonDown.addEventListener('mouseup', ()=> this.handleTapEnd('ArrowDown'))
-    DOM.buttonRotate.addEventListener('mouseup', ()=> this.handleTapEnd('ArrowUp'))
+    DOM.buttonLeft.addEventListener('touchstart', () => this.handleTapStart('ArrowLeft'))
+    DOM.buttonRight.addEventListener('touchstart', () => this.handleTapStart('ArrowRight'))
+    DOM.buttonDown.addEventListener('touchstart', () => this.handleTapStart('ArrowDown'))
+    DOM.buttonRotate.addEventListener('touchstart', () => this.handleTapStart('ArrowUp'))
+
+    DOM.buttonLeft.addEventListener('mouseup', () => this.handleTapEnd('ArrowLeft'))
+    DOM.buttonRight.addEventListener('mouseup', () => this.handleTapEnd('ArrowRight'))
+    DOM.buttonDown.addEventListener('mouseup', () => this.handleTapEnd('ArrowDown'))
+    DOM.buttonRotate.addEventListener('mouseup', () => this.handleTapEnd('ArrowUp'))
     this.isInitiated = true
   }
 
-  static handleTapStart(key: string){
-    const event = new KeyboardEvent('keydown' ,  {key})
+  static handleTapStart(key: string) {
+    const event = new KeyboardEvent('keydown', { key });
     this.handleKeyDown(event)
   }
 
-  static handleTapEnd(key: string){
-    const event = new KeyboardEvent('keyup' ,  {key})
+  static handleTapEnd(key: string) {
+    const event = new KeyboardEvent('keyup', { key })
     this.handleKeyUp(event)
   }
 
@@ -64,7 +64,7 @@ export class Input {
         this.down.onCurrentFrame = true
         break
       }
-      case 'ArrowUp': 
+      case 'ArrowUp':
       case 'Shift': {
         e.preventDefault()
         this.rotate.isPressed = true
@@ -107,7 +107,7 @@ export class Input {
         this.down.onCurrentFrame = true
         break
       }
-      case 'ArrowUp': 
+      case 'ArrowUp':
       case 'Shift': {
         e.preventDefault()
         this.rotate.isPressed = false
