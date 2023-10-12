@@ -1,3 +1,4 @@
+import { Input } from './input'
 import { DOM } from './dom'
 import { Tetromino } from '../entity/tetromino'
 import { tetrominoMap } from '../entity/tetromino.data'
@@ -74,6 +75,20 @@ export class Board {
         const cellY = (y + projection.y) * config.block.size
         this.context.fillStyle = '#fcbe2488'
         this.context.fillRect(cellX, cellY, config.block.size, config.block.size)
+      }
+    }
+
+    // render tap duration indicator
+    if (Input.down.isPressed) {
+      const elapsed = Date.now() - Input.tapStart
+      if (elapsed > 100) {
+        let radius = (elapsed - 100) / 3
+        if (radius > 100) radius = 100
+        this.context.beginPath()
+        this.context.fillStyle = `#fcbe2466`
+        this.context.ellipse(100, 400, radius, radius / 2, Math.PI, 0, Math.PI)
+
+        this.context.fill()
       }
     }
   }

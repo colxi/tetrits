@@ -17,7 +17,8 @@ export function handleTetrominoFall(delta: number) {
 }
 
 export function handleUserInput(delta: number) {
-  if (Input.enter.isPressedOnCurrentFrame) {
+  const isDownLongPress = Input.down.isPressed && Date.now() - Input.tapStart > 500
+  if (Input.enter.isPressedOnCurrentFrame || isDownLongPress) {
     while (true) {
       Board.currentTetromino.y++
       if (Board.hasCollision()) {
@@ -26,7 +27,9 @@ export function handleUserInput(delta: number) {
         break
       }
     }
+    Input.resetTapStart()
   }
+
   if (Input.rotate.isPressedOnCurrentFrame) {
     Board.currentTetromino.rotate(Board)
   }

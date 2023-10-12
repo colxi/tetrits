@@ -16,30 +16,43 @@ export class Input {
   static right: InputEvent = new InputEvent()
   static rotate: InputEvent = new InputEvent()
   static pause: InputEvent = new InputEvent()
+  static tapStart: number = 0
 
   static init() {
     if (this.isInitiated) return
     document.addEventListener('keydown', this.handleKeyDown.bind(this))
     document.addEventListener('keyup', this.handleKeyUp.bind(this))
+    document.addEventListener('contextmenu', (e) => e.preventDefault())
 
     DOM.buttonLeft.addEventListener('touchstart', () => this.handleTapStart('ArrowLeft'))
     DOM.buttonRight.addEventListener('touchstart', () => this.handleTapStart('ArrowRight'))
     DOM.buttonDown.addEventListener('touchstart', () => this.handleTapStart('ArrowDown'))
     DOM.buttonRotate.addEventListener('touchstart', () => this.handleTapStart('ArrowUp'))
 
-    DOM.buttonLeft.addEventListener('mouseup', () => this.handleTapEnd('ArrowLeft'))
-    DOM.buttonRight.addEventListener('mouseup', () => this.handleTapEnd('ArrowRight'))
-    DOM.buttonDown.addEventListener('mouseup', () => this.handleTapEnd('ArrowDown'))
-    DOM.buttonRotate.addEventListener('mouseup', () => this.handleTapEnd('ArrowUp'))
+    // DOM.buttonLeft.addEventListener('mouseup', () => this.handleTapEnd('ArrowLeft'))
+    // DOM.buttonRight.addEventListener('mouseup', () => this.handleTapEnd('ArrowRight'))
+    // DOM.buttonDown.addEventListener('mouseup', () => this.handleTapEnd('ArrowDown'))
+    // DOM.buttonRotate.addEventListener('mouseup', () => this.handleTapEnd('ArrowUp'))
+
+    DOM.buttonLeft.addEventListener('touchend', () => this.handleTapEnd('ArrowLeft'))
+    DOM.buttonRight.addEventListener('touchend', () => this.handleTapEnd('ArrowRight'))
+    DOM.buttonDown.addEventListener('touchend', () => this.handleTapEnd('ArrowDown'))
+    DOM.buttonRotate.addEventListener('touchend', () => this.handleTapEnd('ArrowUp'))
     this.isInitiated = true
   }
 
+  static resetTapStart() {
+    this.tapStart = Date.now()
+  }
+
   static handleTapStart(key: string) {
+    this.tapStart = Date.now()
     const event = new KeyboardEvent('keydown', { key })
     this.handleKeyDown(event)
   }
 
   static handleTapEnd(key: string) {
+    this.tapStart = 0
     const event = new KeyboardEvent('keyup', { key })
     this.handleKeyUp(event)
   }
