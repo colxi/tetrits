@@ -1,6 +1,6 @@
 import { DOM } from './dom'
 import { Tetromino } from '../entity/tetromino'
-import { tetrominoData } from '../entity/tetromino.data'
+import { tetrominoMap } from '../entity/tetromino.data'
 import { createMatrix2D, randomIntFromInterval } from '../helpers'
 import { config } from '../config'
 import { Matrix2D } from '../types'
@@ -46,11 +46,14 @@ export class Board {
     }
 
     // render current tetromino
+    const pivot = Board.currentTetromino.getPivotCoords()
+
     for (let y = 0; y < Board.currentTetromino.height; y++) {
       for (let x = 0; x < Board.currentTetromino.width; x++) {
         if (!Board.currentTetromino.getBlockData(x, y)) continue
         const cellX = (x + Board.currentTetromino.x) * config.block.size
         const cellY = (y + Board.currentTetromino.y) * config.block.size
+        this.context.fillStyle = pivot.x === x && pivot.y === y ? '#faaa20' : '#fcbe24'
         this.context.fillRect(cellX, cellY, config.block.size, config.block.size)
       }
     }
@@ -85,8 +88,8 @@ export class Board {
   }
 
   public static getRandomTetromino(): Tetromino {
-    const tetrominoIndex = randomIntFromInterval(0, tetrominoData.length - 1)
-    return new Tetromino(tetrominoData[tetrominoIndex])
+    const tetrominoIndex = randomIntFromInterval(0, tetrominoMap.length - 1)
+    return new Tetromino(tetrominoMap[tetrominoIndex])
   }
 
   public static createNewTetromino(): void {
@@ -105,6 +108,7 @@ export class Board {
     if (tetromino.x + tetromino.width > this.width) return true
     // check collision between Tetromino and other block already on the board
     for (let offsetY = 0; offsetY < tetromino.height; offsetY++) {
+      if (offsetY + this.currentTetromino.y < 0) continue
       for (let offsetX = 0; offsetX < tetromino.width; offsetX++) {
         const boardX = tetromino.x + offsetX
         const boardY = tetromino.y + offsetY

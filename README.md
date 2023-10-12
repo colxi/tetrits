@@ -1,6 +1,6 @@
 # tetrits
 
-Basic browser-based implementation of the Tetris game, using Typescript, with no external dependencies.
+Basic browser-based implementation of the classic Tetris game mechanics, using Typescript, with no external dependencies.
 
 > Try it here: https://colxi.info/tetrits/
 
@@ -15,21 +15,21 @@ pnpm i
 pnpm dev
 ```
 
-## Features :
+## Features & characteristics :
 
 - Compact: 16Kb
 - Keyboard control
-- Block movement
-- Block rotation
-- Block projection
+- Tactile control (mobile)
+- Tetromino movement
+- Tetromino rotation (with pivot)
+- Tetromino projection
+- Fast Tetromino drop
 - Basic scoring system
 - Basic leveling system
 - Pause/resume
 
 # Pending features
 
-- Wall kick
-- Rotate using custom pivot point
 - Multiple rotation directions
 - Use standard scoring system
-- Include several modern Tetris features
+- Include modern game-genre mechanics features (Eg: wall-kick)

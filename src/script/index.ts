@@ -6,7 +6,6 @@ import { handleTetrominoFall, handleUserInput } from './loop/update'
 
 Game.onUpdate((delta: number) => {
   if (Input.pause.isPressedOnCurrentFrame) Game.isPaused ? Game.resume() : Game.pause()
-
   if (Game.isPaused) return
   handleTetrominoFall(delta)
   handleUserInput(delta)

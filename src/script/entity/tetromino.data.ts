@@ -1,50 +1,58 @@
 import { TetrominoDescriptor, TetrominoId } from '../types'
 
-export const tetrominoData: TetrominoDescriptor[] = [
+/**
+ *
+ * 0=> empty slot
+ * 1=> block slot
+ * 2=> pivot slot (with block)
+ *
+ */
+
+export const tetrominoMap: TetrominoDescriptor[] = [
   {
     id: TetrominoId.L,
-    data: [
+    matrix: [
       [0, 0, 1],
-      [1, 1, 1],
+      [1, 2, 1],
     ],
   },
   {
     id: TetrominoId.L_INVERTED,
-    data: [
+    matrix: [
       [1, 0, 0],
-      [1, 1, 1],
+      [1, 2, 1],
     ],
   },
   {
     id: TetrominoId.SQUARE,
-    data: [
+    matrix: [
       [1, 1],
-      [1, 1],
+      [2, 1],
     ],
   },
   {
     id: TetrominoId.T,
-    data: [
+    matrix: [
+      [1, 2, 1],
       [0, 1, 0],
-      [1, 1, 1],
     ],
   },
   {
     id: TetrominoId.S,
-    data: [
+    matrix: [
       [0, 1, 1],
-      [1, 1, 0],
+      [1, 2, 0],
     ],
   },
   {
     id: TetrominoId.S_INVERTED,
-    data: [
+    matrix: [
       [1, 1, 0],
-      [0, 1, 1],
+      [0, 2, 1],
     ],
   },
   {
     id: TetrominoId.LINE,
-    data: [[1, 1, 1, 1]],
+    matrix: [[1, 1, 2, 1]],
   },
 ]

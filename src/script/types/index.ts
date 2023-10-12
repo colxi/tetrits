@@ -12,5 +12,5 @@ export enum TetrominoId {
 
 export interface TetrominoDescriptor {
   id: TetrominoId
-  data: Matrix2D
+  matrix: Matrix2D
 }
